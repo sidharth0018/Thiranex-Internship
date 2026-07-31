@@ -1,0 +1,50 @@
+# Predictive Analytics Using Historical Data 📈
+
+Forecasts future sales trends from historical time-series data using regression models, with train/test evaluation and a 30-day forward forecast.
+
+## Features
+- Cleans and preprocesses historical daily sales data
+- Feature engineering: trend, day-of-week, month, cyclical (sin/cos) seasonality
+- Compares Linear Regression vs Random Forest Regressor
+- Evaluates accuracy: MAE, RMSE, R²
+- Visualizes actual vs predicted sales, and a 30-day forward forecast
+
+## Tech Stack
+Python · Pandas · NumPy · scikit-learn · Matplotlib
+
+## Project Structure
+```
+predictive-analytics/
+├── README.md
+├── forecast.py
+├── requirements.txt
+├── data/
+│   └── historical_sales.csv
+└── outputs/
+    ├── model_evaluation.csv
+    ├── actual_vs_predicted.png
+    ├── forecast_next_30_days.png
+    └── next_30_day_forecast.csv
+```
+
+## Run Locally
+```bash
+pip install -r requirements.txt
+python forecast.py
+```
+
+## Results
+| Model             | MAE    | RMSE   | R²   |
+|-------------------|--------|--------|------|
+| Linear Regression | 109.55 | 135.92 | 0.87 |
+| Random Forest     | 161.60 | 193.10 | 0.74 |
+
+**Best model: Linear Regression** — captures the underlying trend + seasonality cleanly since the signal is largely linear/cyclical, while Random Forest slightly overfits noise on unseen future dates.
+
+## Key Insights
+- Sales show clear weekly and yearly seasonality on top of a steady upward trend
+- Regression with cyclical (sin/cos) seasonal features outperforms tree-based models for extrapolation into the future
+- Model forecasts the next 30 days with ~87% variance explained (R²)
+
+## Author
+Sidh — [GitHub](https://github.com/sidharth0018) · [LinkedIn](https://linkedin.com/in/sidharth-kumar-501768287)
