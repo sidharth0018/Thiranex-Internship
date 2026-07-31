@@ -1,0 +1,50 @@
+
+<html>
+<head>
+<title>Data Cleaning & Reporting Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; color: #222; }
+h1 { color: #2c3e50; }
+h2 { color: #34495e; border-bottom: 2px solid #eee; padding-bottom: 4px; }
+table { border-collapse: collapse; width: 60%; margin-bottom: 20px; }
+th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+th { background-color: #f5f6fa; }
+.metric { display: inline-block; margin: 10px 25px 10px 0; }
+.metric .value { font-size: 28px; font-weight: bold; color: #2980b9; }
+.metric .label { font-size: 13px; color: #777; }
+img { max-width: 100%; border: 1px solid #eee; margin-top: 10px; }
+</style>
+</head>
+<body>
+<h1>Data Cleaning & Reporting Summary</h1>
+<p>Generated automatically on 31 Jul 2026, 20:54</p>
+
+<h2>Cleaning Overview</h2>
+<div class="metric"><div class="value">840</div><div class="label">Raw Rows</div></div>
+<div class="metric"><div class="value">800</div><div class="label">Clean Rows</div></div>
+<div class="metric"><div class="value">40</div><div class="label">Duplicates Removed</div></div>
+<div class="metric"><div class="value">315</div><div class="label">Values Fixed/Imputed</div></div>
+
+<h2>Cleaning Log</h2>
+<pre>Loaded raw data: 840 rows, 7 columns
+Removed 40 duplicate rows
+Standardized City field casing and whitespace
+Fixed 80 invalid/missing Age values (imputed with median=44)
+Imputed 52 missing Income values with median=82076
+Fixed 97 invalid/missing PurchaseAmount values (imputed with median=25287)
+Filled 86 missing City values with 'Unknown'
+Parsed SignupDate to datetime
+
+Final cleaned dataset: 800 rows (from 840 raw rows)</pre>
+
+<h2>Top 5 Cities by Customer Count</h2>
+<table>
+<tr><th>City</th><th>Customers</th></tr>
+<tr><td>Mumbai</td><td>214</td></tr><tr><td>Delhi</td><td>192</td></tr><tr><td>Bangalore</td><td>109</td></tr><tr><td>Kolkata</td><td>102</td></tr><tr><td>Chennai</td><td>97</td></tr>
+</table>
+
+<h2>Visual Summary</h2>
+<img src="summary_visuals.png" alt="Summary visuals">
+
+</body>
+</html>
