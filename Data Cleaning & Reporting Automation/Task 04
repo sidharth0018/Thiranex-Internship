@@ -1,0 +1,56 @@
+# Data Cleaning & Reporting Automation 🧹
+
+A one-command pipeline that cleans a messy raw dataset (missing values, duplicates, inconsistent formatting, invalid entries) and automatically generates a visual HTML summary report — no manual spreadsheet work.
+
+## Features
+- Removes exact duplicate records
+- Standardizes inconsistent text formatting (e.g. `delhi` / `DELHI` / `Delhi` → `Delhi`)
+- Detects and fixes invalid values (negative/out-of-range ages, negative purchase amounts)
+- Imputes missing numeric values with median; fills missing categorical values with `Unknown`
+- Parses and standardizes date fields
+- Logs every cleaning action taken (`cleaning_log.txt`) for full traceability
+- Auto-generates a styled HTML report with KPIs, a cleaning log, a top-cities table, and 4 summary charts
+
+## Tech Stack
+Python · Pandas · NumPy · Matplotlib
+
+## Project Structure
+```
+data-cleaning-automation/
+├── README.md
+├── clean_and_report.py
+├── requirements.txt
+├── data/
+│   └── raw_customer_data.csv
+└── outputs/
+    ├── cleaned_customer_data.csv
+    ├── cleaning_log.txt
+    ├── summary_visuals.png
+    └── summary_report.html
+```
+
+## Run Locally
+```bash
+pip install -r requirements.txt
+python clean_and_report.py
+```
+Open `outputs/summary_report.html` in a browser to view the generated report.
+
+## Cleaning Summary (this run)
+| Step                        | Count |
+|------------------------------|-------|
+| Raw rows                     | 840   |
+| Duplicate rows removed        | 40    |
+| Invalid/missing Age fixed     | 80    |
+| Missing Income imputed        | 52    |
+| Invalid/missing Purchase fixed| 97    |
+| Missing City filled           | 86    |
+| **Final clean rows**          | **800** |
+
+## Key Insights
+- ~5% of raw records were exact duplicates from repeated data entry
+- Inconsistent city-name casing was the most common formatting issue, easily fixed with standardization
+- Median imputation kept distributions stable without introducing outlier bias
+
+## Author
+Sidh — [GitHub](https://github.com/sidharth0018) · [LinkedIn](https://linkedin.com/in/sidharth-kumar-501768287)
