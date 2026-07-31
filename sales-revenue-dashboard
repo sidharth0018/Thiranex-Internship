@@ -1,0 +1,6 @@
+git init
+git add .
+git commit -m "Sales & Revenue Analysis Dashboard - KPIs, trends, filters"
+git branch -M main
+git remote add origin https://github.com/sidharth0018/sales-revenue-dashboard.git
+git push -u origin main
